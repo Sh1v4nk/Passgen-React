@@ -92,7 +92,7 @@ function App() {
             </svg>
           </div>
           <button
-            className="bg-blue-600 w-full lg:hover:bg-blue-500 select-none hover:scale-110 active:scale-90 transition text-light-white rounded-full p-3 lg:w-32"
+            className="bg-blue-600 w-full lg:hover:bg-blue-500 select-none lg:hover:scale-110 active:scale-90 transition text-light-white rounded-full p-3 lg:w-32"
             onClick={(e) => {
               navigator.clipboard.writeText(password);
 
@@ -104,6 +104,61 @@ function App() {
           >
             {copyText}
           </button>
+        </div>
+        <div className="flex max-lg:flex-col text-center items-center gap-6 max-w-md my-6">
+          <h3 className="text-light-white w-80 text-lg font-light">
+            Password length : <span className="font-bold m-2">{length}</span>
+          </h3>
+          <input
+            type="range"
+            className="cursor-pointer w-4/5 rounded-lg h-1 accent-blue-600"
+            min="1"
+            max="50"
+            value={length}
+            onChange={(e) => setLength(e.target.value)}
+          />
+        </div>
+        <div className="flex max-lg:flex-col text-center items-center gap-6 max-w-md m-4">
+          <h3 className="text-light-white text-lg font-light">
+            Characters used :
+          </h3>
+          <div className="flex gap-6">
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                defaultChecked={uppercaseAllowed}
+                onChange={(e) => setUppercaseAllowed((prev) => !prev)}
+                className="accent-blue-600 h-4 w-4 rounded-full"
+              />
+              <p className="text-light-white text-lg font-bold">ABC</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                defaultChecked={lowercaseAllowed}
+                onChange={(e) => setLowercaseAllowed((prev) => !prev)}
+                className="accent-blue-600 h-4 w-4"
+              />
+              <p className="text-light-white text-lg font-bold">abc</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                defaultChecked={numberAllowed}
+                onChange={(e) => setNumberAllowed((prev) => !prev)}
+                className="accent-blue-600 h-4 w-4"
+              />
+              <p className="text-light-white text-lg font-bold">123</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                className="accent-blue-600 h-4 w-4"
+                onChange={(e) => setSpecialAllowed((prev) => !prev)}
+              />
+              <p className="text-light-white text-lg font-bold">#$&</p>
+            </div>
+          </div>
         </div>
       </div>
     </>
