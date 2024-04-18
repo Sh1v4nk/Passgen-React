@@ -92,7 +92,7 @@ function App() {
             </svg>
           </div>
           <button
-            className="bg-blue-600 w-full lg:hover:bg-blue-500 select-none lg:hover:scale-110 active:scale-90 transition text-light-white rounded-full p-3 lg:w-32"
+            className="bg-blue-600 w-full lg:hover:bg-blue-500 select-none hover:scale-110 active:scale-90 transition text-light-white rounded-full p-3 lg:w-32"
             onClick={(e) => {
               navigator.clipboard.writeText(password);
 
