@@ -26,12 +26,17 @@ function App() {
       allowedChars += ".!@#$%^&*()_+";
     }
 
-    for (let i = 0; i < length; i++) {
-      pass += allowedChars.charAt(
-        Math.floor(Math.random() * allowedChars.length)
-      );
-    }
+    setPassword("");
 
+    // Generate password using cryptographically secure random values
+    let i = 0;
+    const allowedCharsLength = allowedChars.length;
+    const randomValues = new Uint32Array(length);
+    window.crypto.getRandomValues(randomValues);
+    while (i < length) {
+      pass += allowedChars.charAt(randomValues[i] % allowedCharsLength);
+      i++;
+    }
     setPassword(pass);
   }, [
     length,
@@ -42,6 +47,7 @@ function App() {
     setPassword,
   ]);
 
+  // Effect to generate a password when options change
   useEffect(() => {
     generatePassword();
   }, [
@@ -52,6 +58,41 @@ function App() {
     specialAllowed,
     generatePassword,
   ]);
+
+  // Function to copy the generated password to clipboard
+  const copyPassword = (e) => {
+    navigator.clipboard.writeText(password);
+
+    // Set copy button text to "Copied!" temporarily
+    setCopyText("Copied!");
+    setTimeout(() => {
+      setCopyText("Copy");
+    }, 2000);
+  };
+
+  // Function to handle checkbox state changes
+  const handleCheckboxChange = (setStateFunction) => {
+    return (e) => {
+      const checked = e.target.checked;
+
+      // Ensure at least one option is selected
+      if (!checked && countChecked() === 1) {
+        return;
+      }
+
+      setStateFunction(checked);
+    };
+  };
+
+  // Function to count the number of selected options
+  const countChecked = () => {
+    return [
+      uppercaseAllowed,
+      lowercaseAllowed,
+      numberAllowed,
+      specialAllowed,
+    ].filter(Boolean).length;
+  };
 
   return (
     <>
@@ -77,30 +118,21 @@ function App() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="white"
               className="w-6 h-6 mr-2 ml-2 select-none"
-              onClick={() => {
-                generatePassword();
-              }}
+              onClick={generatePassword}
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
               />
             </svg>
           </div>
           <button
             className="bg-blue-600 w-full lg:hover:bg-blue-500 select-none hover:scale-110 active:scale-90 transition text-light-white rounded-full p-3 lg:w-32"
-            onClick={(e) => {
-              navigator.clipboard.writeText(password);
-
-              setCopyText("Copied!");
-              setTimeout(() => {
-                setCopyText("Copy");
-              }, 2000);
-            }}
+            onClick={copyPassword}
           >
             {copyText}
           </button>
@@ -126,8 +158,8 @@ function App() {
             <div className="flex items-center gap-2">
               <input
                 type="checkbox"
-                defaultChecked={uppercaseAllowed}
-                onChange={(e) => setUppercaseAllowed((prev) => !prev)}
+                checked={uppercaseAllowed}
+                onChange={handleCheckboxChange(setUppercaseAllowed)}
                 className="accent-blue-600 h-4 w-4 rounded-full"
               />
               <p className="text-light-white text-lg font-bold">ABC</p>
@@ -135,8 +167,8 @@ function App() {
             <div className="flex items-center gap-2">
               <input
                 type="checkbox"
-                defaultChecked={lowercaseAllowed}
-                onChange={(e) => setLowercaseAllowed((prev) => !prev)}
+                checked={lowercaseAllowed}
+                onChange={handleCheckboxChange(setLowercaseAllowed)}
                 className="accent-blue-600 h-4 w-4"
               />
               <p className="text-light-white text-lg font-bold">abc</p>
@@ -144,8 +176,8 @@ function App() {
             <div className="flex items-center gap-2">
               <input
                 type="checkbox"
-                defaultChecked={numberAllowed}
-                onChange={(e) => setNumberAllowed((prev) => !prev)}
+                checked={numberAllowed}
+                onChange={handleCheckboxChange(setNumberAllowed)}
                 className="accent-blue-600 h-4 w-4"
               />
               <p className="text-light-white text-lg font-bold">123</p>
@@ -153,8 +185,9 @@ function App() {
             <div className="flex items-center gap-2">
               <input
                 type="checkbox"
+                checked={specialAllowed}
+                onChange={handleCheckboxChange(setSpecialAllowed)}
                 className="accent-blue-600 h-4 w-4"
-                onChange={(e) => setSpecialAllowed((prev) => !prev)}
               />
               <p className="text-light-white text-lg font-bold">#$&</p>
             </div>
