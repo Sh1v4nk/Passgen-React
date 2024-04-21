@@ -33,11 +33,16 @@ function App() {
     const allowedCharsLength = allowedChars.length;
     const randomValues = new Uint32Array(length);
     window.crypto.getRandomValues(randomValues);
-    while (i < length) {
-      pass += allowedChars.charAt(randomValues[i] % allowedCharsLength);
-      i++;
-    }
-    setPassword(pass);
+    const typingAnimation = setInterval(() => {
+      // Typing animation
+      if (i < length) {
+        pass += allowedChars.charAt(randomValues[i] % allowedCharsLength);
+        i++;
+        setPassword(pass);
+      } else {
+        clearInterval(typingAnimation);
+      }
+    }, 20);
   }, [
     length,
     numberAllowed,
