@@ -66,7 +66,11 @@ Passgen React is a web application built using React.js that allows users to gen
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request with your improvements or bug fixes.
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and submit a pull request.
 
 ---
 
