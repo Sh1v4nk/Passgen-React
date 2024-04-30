@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 
 function App() {
-  const [length, setLength] = useState("8");
+  const [length, setLength] = useState("16");
   const [uppercaseAllowed, setUppercaseAllowed] = useState(true);
   const [lowercaseAllowed, setLowercaseAllowed] = useState(true);
   const [numberAllowed, setNumberAllowed] = useState(true);
