@@ -61,7 +61,7 @@ Passgen React is a web application built using React.js that allows users to gen
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="https://i.ibb.co/x57npGK/image.png" alt="Passgen-React">
+  <img src="https://i.ibb.co/HTMzT4m/image.png" alt="Passgen-React">
 </div>
 
 ## 🤝 Contributing
