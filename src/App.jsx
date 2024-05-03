@@ -11,20 +11,7 @@ function App() {
 
   const generatePassword = useCallback(() => {
     let pass = "";
-    let allowedChars = "";
-
-    if (numberAllowed) {
-      allowedChars += "0123456789";
-    }
-    if (uppercaseAllowed) {
-      allowedChars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-    if (lowercaseAllowed) {
-      allowedChars += "abcdefghijklmnopqrstuvwxyz";
-    }
-    if (specialAllowed) {
-      allowedChars += ".!@#$%^&*()_+";
-    }
+    let allowedChars = buildAllowedChars();
 
     setPassword("");
 
@@ -51,6 +38,24 @@ function App() {
     specialAllowed,
     setPassword,
   ]);
+
+  // Function to build the allowed characters string
+  const buildAllowedChars = () => {
+    let allowedChars = "";
+    if (numberAllowed) {
+      allowedChars += "0123456789";
+    }
+    if (uppercaseAllowed) {
+      allowedChars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    if (lowercaseAllowed) {
+      allowedChars += "abcdefghijklmnopqrstuvwxyz";
+    }
+    if (specialAllowed) {
+      allowedChars += ".!@#$%^&*()_+";
+    }
+    return allowedChars;
+  };
 
   // Effect to generate a password when options change
   useEffect(() => {
