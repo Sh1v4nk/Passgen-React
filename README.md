@@ -12,23 +12,23 @@ Welcome to my Passgen-React(Random Password Generator) repository—a project I 
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 
-## 🔐 Overview
+## Overview
 
 Passgen React is a web application built using React.js that allows users to generate strong and secure passwords. The application offers various options such as password length and character types to customize the generated passwords according to the user's requirements.
 
-## 🔑 Features
+## Features
 
 - Generate random passwords with customizable length.
 - Include or exclude character types like uppercase letters, lowercase letters, numbers, and special characters.
 - Copy generated passwords to clipboard with a single click.
 - Responsive design for seamless usage on different devices.
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - React.js
 - Tailwind CSS
 
-## 🚀 Installation
+## Installation
 
 1. Clone the repository:
    ```bash
@@ -50,7 +50,7 @@ Passgen React is a web application built using React.js that allows users to gen
 
 6. Alternatively, you can you can view a live demo of the [Passgen-React](https://react-passgen.vercel.app/).
 
-## 🎮 Usage
+## Usage
 
 1. Set the desired password length using the range slider.
 2. Select the character types to include in the generated password.
@@ -58,13 +58,13 @@ Passgen React is a web application built using React.js that allows users to gen
 4. Click the "**Copy**" button to copy the generated password to the clipboard.
 5. Optionally, customize the settings and generate multiple passwords as needed.
 
-## 📸 Screenshots
+## Screenshots
 
 <div align="center">
   <img src="https://i.ibb.co/HTMzT4m/image.png" alt="Passgen-React">
 </div>
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please follow these steps:
 
