@@ -22,6 +22,8 @@ Passgen React is a web application built using React.js that allows users to gen
 - Include or exclude character types like uppercase letters, lowercase letters, numbers, and special characters.
 - Copy generated passwords to clipboard with a single click.
 - Responsive design for seamless usage on different devices.
+- Enhanced security with `crypto.getRandomValues` for generating random values.
+- Added checkbox validation for improved user experience.
 
 ## Technologies Used
 
