@@ -25,6 +25,14 @@ Passgen React is a web application built using React.js that allows users to gen
 - Enhanced security with `crypto.getRandomValues` for generating random values.
 - Added checkbox validation for improved user experience.
 
+## Usage
+
+1. Set the desired password length using the range slider.
+2. Select the character types to include in the generated password.
+3. Click the "**Generate Icon**" button next to generated password filed to generate a new password.
+4. Click the "**Copy**" button to copy the generated password to the clipboard.
+5. Optionally, customize the settings and generate multiple passwords as needed.
+
 ## Technologies Used
 
 - React.js
@@ -51,14 +59,6 @@ Passgen React is a web application built using React.js that allows users to gen
 5. Open your browser and visit `http://localhost:5173` to view the application or open the link provided in the terminal.
 
 6. Alternatively, you can you can view a live demo of the [Passgen-React](https://react-passgen.vercel.app/).
-
-## Usage
-
-1. Set the desired password length using the range slider.
-2. Select the character types to include in the generated password.
-3. Click the "**Generate Icon**" button next to generated password filed to generate a new password.
-4. Click the "**Copy**" button to copy the generated password to the clipboard.
-5. Optionally, customize the settings and generate multiple passwords as needed.
 
 ## Screenshots
 
