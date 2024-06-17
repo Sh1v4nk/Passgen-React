@@ -6,9 +6,9 @@ Welcome to my Passgen-React(Random Password Generator) repository—a project I 
 
 - [Overview](#overview)
 - [Features](#features)
+- [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 
