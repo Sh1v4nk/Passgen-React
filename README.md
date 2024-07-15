@@ -11,6 +11,7 @@ Welcome to my Passgen-React(Random Password Generator) repository—a project I 
 - [Installation](#installation)
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
+- [License](#license)
 
 ## Overview
 
