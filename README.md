@@ -30,8 +30,8 @@ Passgen React is a web application built using React.js that allows users to gen
 
 1. Set the desired password length using the range slider.
 2. Select the character types to include in the generated password.
-3. Click the "**Generate Icon**" button next to generated password filed to generate a new password.
-4. Click the "**Copy**" button to copy the generated password to the clipboard.
+3. Click the **`Generate Icon`** button next to generated password filed to generate a new password.
+4. Click the **`Copy`** button to copy the generated password to the clipboard.
 5. Optionally, customize the settings and generate multiple passwords as needed.
 
 ## Technologies Used
