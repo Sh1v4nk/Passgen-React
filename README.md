@@ -36,8 +36,8 @@ Passgen React is a web application built using React.js that allows users to gen
 
 ## Technologies Used
 
-- React.js
-- Tailwind CSS
+- [React.js](https://react.dev/)
+- [Tailwind](https://tailwindcss.com/)
 
 ## Installation
 
