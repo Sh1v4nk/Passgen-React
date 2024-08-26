@@ -1,8 +1,13 @@
+<div align="center">
+
+
 # Passgen-React
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
 
 Welcome to my Passgen-React(Random Password Generator) repository—a project I developed while learning React!
+
+</div>
 
 ## Table of Contents
 
