@@ -1,22 +1,12 @@
 <div align="center">
 
-
-<div align="center">
-
-
 # Passgen-React
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Sh1v4nk/Passgen-React)
 
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-![GitHub repo size](https://img.shields.io/github/repo-size/Sh1v4nk/Passgen-React)
-
 Welcome to my Passgen-React(Random Password Generator) repository—a project I developed while learning React!
-
-</div>
 
 </div>
 
@@ -56,13 +46,6 @@ Passgen React is a web application built using React.js that allows users to gen
 - Enhanced security with **`crypto.getRandomValues`** for generating random values.
 - Added checkbox validation for improved user experience.
 
-## Usage
-
-1. Set the desired password length using the range slider.
-2. Select the character types to include in the generated password.
-3. Click the **`Generate Icon`** button next to generated password filed to generate a new password.
-4. Click the **`Copy`** button to copy the generated password to the clipboard.
-5. Optionally, customize the settings and generate multiple passwords as needed.
 
 ## Technologies Used
 
@@ -111,9 +94,6 @@ Contributions are welcome! Please follow these steps:
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/Sh1v4nk/Passgen-React/blob/main/LICENSE) file for details.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/Sh1v4nk/Passgen-React/blob/main/LICENSE) file for details.
 
 ---
 
