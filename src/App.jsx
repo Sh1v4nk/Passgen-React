@@ -149,7 +149,7 @@ function App() {
         </div>
         <div className="flex max-lg:flex-col text-center items-center gap-6 max-w-md my-6">
           <h3 className="text-light-white w-80 text-lg font-light">
-            Password length : <span className="font-bold m-2">{length}</span>
+            Password length: <span className="font-bold m-2">{length}</span>
           </h3>
           <input
             type="range"
@@ -162,7 +162,7 @@ function App() {
         </div>
         <div className="flex max-lg:flex-col text-center items-center gap-6 max-w-md m-4">
           <h3 className="text-light-white text-lg font-light">
-            Characters used :
+            Characters used:
           </h3>
           <div className="flex gap-6">
             <div className="flex items-center gap-2">
