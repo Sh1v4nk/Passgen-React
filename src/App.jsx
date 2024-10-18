@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import { Copy, RefreshCw, Check, Shield } from "lucide-react";
+import { toast } from "sonner";
 import {
   Button,
   Card,
@@ -11,6 +12,7 @@ import {
   Input,
   Label,
   Slider,
+  Toaster,
 } from "@/components";
 
 function App() {
@@ -35,7 +37,6 @@ function App() {
     const randomValues = new Uint32Array(length);
     window.crypto.getRandomValues(randomValues);
     const typingAnimation = setInterval(() => {
-      // Typing animation
       if (i < length) {
         pass += allowedChars.charAt(randomValues[i] % allowedCharsLength);
         i++;
@@ -58,18 +59,10 @@ function App() {
   // Function to build the allowed characters string
   const buildAllowedChars = () => {
     let allowedChars = "";
-    if (numberAllowed) {
-      allowedChars += "0123456789";
-    }
-    if (uppercaseAllowed) {
-      allowedChars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-    if (lowercaseAllowed) {
-      allowedChars += "abcdefghijklmnopqrstuvwxyz";
-    }
-    if (specialAllowed) {
-      allowedChars += ".!@#$%^&*()_+";
-    }
+    if (numberAllowed) allowedChars += "0123456789";
+    if (uppercaseAllowed) allowedChars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (lowercaseAllowed) allowedChars += "abcdefghijklmnopqrstuvwxyz";
+    if (specialAllowed) allowedChars += ".!@#$%^&*()_+";
     return allowedChars;
   };
 
@@ -88,8 +81,7 @@ function App() {
   // Function to copy the generated password to clipboard
   const copyPassword = () => {
     navigator.clipboard.writeText(password);
-
-    // Set copy button text to "Copied!" temporarily
+    toast.success("Password copied to clipboard!");
     setCopyText("Copied!");
     setTimeout(() => {
       setCopyText("Copy");
@@ -97,13 +89,17 @@ function App() {
   };
 
   // Function to handle checkbox state changes
-  const handleCheckboxChange = (setStateFunction) => {
+  const handleCheckboxChange = (setStateFunction, label) => {
     return (checked) => {
-      // Ensure at least one option is selected
       if (!checked && countChecked() === 1) {
+        toast.error("At least one character type must be enabled");
         return;
       }
       setStateFunction(checked);
+
+      const message = checked ? `${label} enabled` : `${label} disabled`;
+      toast.success(message);
+      generatePassword();
     };
   };
 
@@ -132,6 +128,7 @@ function App() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-800">
+      <Toaster theme="dark" />
       <Card className="w-full max-w-md bg-gray-900 text-white shadow-xl m-3 font-poppins">
         <CardHeader className="space-y-1">
           <CardTitle className="text-3xl font-bold text-center text-blue-400">
@@ -171,7 +168,10 @@ function App() {
                 Password Length: {length}
               </Label>
               <Button
-                onClick={generatePassword}
+                onClick={() => {
+                  generatePassword();
+                  toast.success("Password regenerated successfully!");
+                }}
                 variant="outline"
                 size="sm"
                 className="bg-gray-700 hover:bg-gray-600"
@@ -195,7 +195,10 @@ function App() {
               <Checkbox
                 id="uppercase"
                 checked={uppercaseAllowed}
-                onCheckedChange={handleCheckboxChange(setUppercaseAllowed)}
+                onCheckedChange={handleCheckboxChange(
+                  setUppercaseAllowed,
+                  "Uppercase letters"
+                )}
               />
               <Label htmlFor="uppercase" className="text-sm">
                 Uppercase (A-Z)
@@ -205,7 +208,10 @@ function App() {
               <Checkbox
                 id="lowercase"
                 checked={lowercaseAllowed}
-                onCheckedChange={handleCheckboxChange(setLowercaseAllowed)}
+                onCheckedChange={handleCheckboxChange(
+                  setLowercaseAllowed,
+                  "Lowercase letters"
+                )}
               />
               <Label htmlFor="lowercase" className="text-sm">
                 Lowercase (a-z)
@@ -215,7 +221,10 @@ function App() {
               <Checkbox
                 id="numbers"
                 checked={numberAllowed}
-                onCheckedChange={handleCheckboxChange(setNumberAllowed)}
+                onCheckedChange={handleCheckboxChange(
+                  setNumberAllowed,
+                  "Numbers"
+                )}
               />
               <Label htmlFor="numbers" className="text-sm">
                 Numbers (0-9)
@@ -225,7 +234,10 @@ function App() {
               <Checkbox
                 id="symbols"
                 checked={specialAllowed}
-                onCheckedChange={handleCheckboxChange(setSpecialAllowed)}
+                onCheckedChange={handleCheckboxChange(
+                  setSpecialAllowed,
+                  "Symbols"
+                )}
               />
               <Label htmlFor="symbols" className="text-sm">
                 Symbols (!@#$%^&*)
