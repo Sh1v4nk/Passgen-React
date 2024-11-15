@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
   Checkbox,
+  CardFooter,
   Input,
   Label,
   Slider,
@@ -270,6 +271,19 @@ function App() {
             <span>Your password is securely generated in your browser</span>
           </div>
         </CardContent>
+        <CardFooter>
+          <p className="tracking-tight text-center text-gray-400 w-full">
+            Developed by{" "}
+            <a
+              href="https://github.com/Sh1v4nk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-gray-400"
+            >
+              Shivank
+            </a>
+          </p>
+        </CardFooter>
       </Card>
     </div>
   );
