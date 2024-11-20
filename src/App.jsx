@@ -29,9 +29,6 @@ function App() {
   const generatePassword = useCallback(() => {
     let pass = "";
     let allowedChars = buildAllowedChars();
-
-    setPassword("");
-
     // Generate password using cryptographically secure random values
     let i = 0;
     const allowedCharsLength = allowedChars.length;
@@ -54,7 +51,6 @@ function App() {
     uppercaseAllowed,
     lowercaseAllowed,
     specialAllowed,
-    setPassword,
   ]);
 
   // Function to build the allowed characters string
@@ -76,13 +72,18 @@ function App() {
     uppercaseAllowed,
     lowercaseAllowed,
     specialAllowed,
-    generatePassword,
   ]);
 
   // Function to copy the generated password to clipboard
   const copyPassword = () => {
-    navigator.clipboard.writeText(password);
-    toast.success("Password copied to clipboard!");
+    if (navigator.clipboard) {
+      navigator.clipboard
+        .writeText(password)
+        .then(() => toast.success("Password copied to clipboard!"))
+        .catch(() => toast.error("Failed to copy password."));
+    } else {
+      toast.error("Clipboard not supported in this browser.");
+    }
     setCopyText("Copied!");
     setTimeout(() => {
       setCopyText("Copy");
@@ -100,7 +101,6 @@ function App() {
 
       const message = checked ? `${label} enabled` : `${label} disabled`;
       toast.success(message);
-      generatePassword();
     };
   };
 
