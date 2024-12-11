@@ -59,7 +59,7 @@ function App() {
     if (numberAllowed) allowedChars += "0123456789";
     if (uppercaseAllowed) allowedChars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     if (lowercaseAllowed) allowedChars += "abcdefghijklmnopqrstuvwxyz";
-    if (specialAllowed) allowedChars += ".!@#$%^&*()_+";
+    if (specialAllowed) allowedChars += "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
     return allowedChars;
   };
 
@@ -130,8 +130,8 @@ function App() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-800">
       <Toaster theme="dark" />
-      <Card className="w-full max-w-md bg-gray-900 text-white shadow-xl m-3 font-poppins">
-        <CardHeader className="space-y-1">
+      <Card className="py-2 w-full max-w-md bg-gray-900 text-white shadow-xl m-3 font-poppins">
+        <CardHeader className="space-y-2">
           <CardTitle className="text-3xl font-bold text-center text-blue-400">
             Random Password Generator
           </CardTitle>
@@ -267,22 +267,32 @@ function App() {
             </div>
           </div>
           <div className="flex items-center justify-center space-x-2 text-sm text-gray-400">
-            <Shield className="h-4 w-4" />
+            <Shield className="h-5 w-5 text-blue-400" />
             <span>Your password is securely generated in your browser</span>
           </div>
         </CardContent>
-        <CardFooter>
-          <p className="tracking-tight text-center text-gray-400 w-full">
-            Developed by{" "}
-            <a
-              href="https://github.com/Sh1v4nk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-gray-400"
-            >
-              Shivank
-            </a>
+        <CardFooter className="flex justify-between">
+          <p className="text-xs text-gray-500">
+            Created with ❤️ by{" "}
+            <span>
+              <a
+                href="https://github.com/Sh1v4nk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline transition"
+              >
+                Shivank
+              </a>
+            </span>
           </p>
+          <a
+            href="https://github.com/Sh1v4nk/Passgen-React"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:underline transition text-xs"
+          >
+            GitHub Repository
+          </a>
         </CardFooter>
       </Card>
     </div>
